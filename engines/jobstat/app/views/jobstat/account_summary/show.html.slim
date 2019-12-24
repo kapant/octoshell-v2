@@ -328,9 +328,9 @@ div
         td = "ЦПУ ядро * час"
         td = "ГПУ * час"
     tbody
-      - @total_cluster_data.each do |key, value|
+      - @total_cluster_data.each do |cluster, value|
         tr
-          td = "#{@clusters[key].name}"
+          td = cluster.name
           td = value[0]
           td = value[1]
           td = value[2]
@@ -341,7 +341,7 @@ div
         td = @total_data[2]
 
   - @data.keys.each do |cluster|
-    h1 = "#{@clusters[cluster].name}"
+    h1 = cluster.name
     table class="tablesorter-blue"
       thead
         tr

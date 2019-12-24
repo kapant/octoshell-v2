@@ -3,13 +3,12 @@ cd "$(dirname "$0")"
 
 export HOST="http://localhost:5000"
 export CLUSTER="mytest"
-export ACC='admin_1'
+export ACC='er_1@octoshell.ru'
 export PART='test'
 
-LAST_ID=`psql -h localhost -U octo -t new_octoshell2 -c ' select max(drms_job_id) from jobstat_jobs;'`
+LAST_ID=`psql -h localhost -U octo -t new_octoshell -c ' select max(drms_job_id) from jobstat_jobs;'`
 
 JOB_ID=$((LAST_ID+1))
-JOB_ID=15
 
 if [ "x$1" != x ]; then
   post_tags=0
@@ -29,7 +28,7 @@ INFO='{
   "num_nodes": 1, 
   "partition": "$PART", 
   "priority": 4294729060, 
-  "state": "RUNNING", 
+  "state": "COMPLETE", 
   "t_end": 1544310112, 
   "t_start": 1543223712, 
   "t_submit": 1542223712, 
